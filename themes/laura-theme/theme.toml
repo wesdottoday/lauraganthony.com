@@ -1,0 +1,12 @@
+name = "Laura Anthony Theme"
+license = "MIT"
+licenselink = "https://github.com/username/laura-theme/blob/main/LICENSE"
+description = "Custom accessibility-focused theme for Laura Anthony's speaking website"
+homepage = "https://lauraganthony.com"
+tags = ["accessibility", "speaker", "responsive", "custom"]
+features = ["responsive", "accessibility", "talks", "blog"]
+min_version = "0.131.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://github.com/username"

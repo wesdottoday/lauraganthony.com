@@ -1,0 +1,90 @@
+baseURL = "https://lauraganthony.com"
+languageCode = "en-us"
+title = "Laura Anthony - Speaker & Accessibility Advocate"
+theme = "laura-theme"
+
+[params]
+  # Brand Colors - Configurable
+  brandColors.primary = "#2563eb"
+  brandColors.secondary = "#1e40af"
+  brandColors.accent = "#3b82f6"
+  brandColors.text = "#1f2937"
+  brandColors.background = "#ffffff"
+  brandColors.callout = "#ef4444"
+  
+  # Site Configuration
+  description = "Laura Anthony is a public speaker and accessibility advocate helping organizations create inclusive experiences."
+  
+  # Contact Information
+  email = "hello@lauraganthony.com"
+  website = "https://lauraganthony.com"
+  linkedin = "https://linkedin.com/in/lauraganthony"
+  
+  # Formspree Configuration
+  formspreeId = "YOUR_FORMSPREE_ID"
+  
+  # Homepage Sections Configuration
+  [params.hero]
+    title = "Creating Inclusive Experiences"
+    subtitle = "Speaker • Advocate • Accessibility Expert"
+    backgroundImage = "/images/hero-bg.jpg"
+    foregroundImage = "/images/laura-hero.jpg"
+  
+  [params.introduction]
+    title = "Building a More Accessible World"
+    imagePosition = "left"
+    image = "/images/laura-intro.jpg"
+    content = "Laura Anthony is passionate about creating digital experiences that work for everyone. With over a decade of experience in accessibility consulting, she helps organizations understand that inclusive design isn't just the right thing to do—it's the smart thing to do."
+  
+  [params.meetLaura]
+    title = "Meet Laura"
+    subtitle = "Your Partner in Accessibility"
+    imagePosition = "right"
+    image = "/images/laura-about.jpg"
+    content = "Laura brings practical insights and actionable strategies to help your team implement accessibility from the ground up. Her engaging presentations combine real-world examples with proven methodologies."
+    ctaText = "Learn More About Laura"
+    ctaLink = "/about"
+  
+  [params.signatureTalks]
+    title = "Signature Talks"
+    subtitle = "Transformative insights your audience will remember"
+  
+  [params.ctaBanner]
+    title = "Ready to Transform Your Approach to Accessibility?"
+    subtitle = "Let's work together to create inclusive experiences"
+    content = "Book Laura for your next conference, workshop, or team training session."
+    ctaText = "Get In Touch"
+    ctaLink = "#contact"
+  
+  [params.customerQuotes]
+    title = "What People Are Saying"
+    showCount = 3
+    randomize = true
+  
+  [params.customerLogos]
+    title = "Trusted by Organizations Worldwide"
+  
+  [params.contact]
+    title = "Let's Connect"
+    ctaText = "Send Message"
+
+[menu]
+  [[menu.main]]
+    name = "Talks"
+    url = "/talks/"
+    weight = 10
+  
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 20
+  
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 30
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
