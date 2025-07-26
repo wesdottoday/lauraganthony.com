@@ -1,0 +1,11 @@
+Watching for changes in /home/wk/Fresh/Projects/lauraganthony.com/{archetypes,assets,content,data,i18n,layouts,static,themes}
+Watching for config changes in /home/wk/Fresh/Projects/lauraganthony.com/hugo.toml
+Start building sites … 
+hugo v0.131.0-bfbee17932ff24009008aa94cdd75c0c41f59279+extended linux/amd64 BuildDate=2024-08-02T09:03:48Z VendorInfo=gohugoio
+
+WARN  found no layout file for "html" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN  found no layout file for "html" for kind "term": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN  found no layout file for "html" for kind "taxonomy": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN  found no layout file for "html" for kind "section": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+Built in 14 ms
+Error: error building site: render: failed to render pages: render of "home" failed: "/home/wk/Fresh/Projects/lauraganthony.com/themes/laura-theme/layouts/index.html:60:66": execute of template failed: template: index.html:60:66: executing "main" at <where .Params.featured true>: error calling where: can't iterate over <nil>

@@ -1,0 +1,111 @@
+{{ define "main" }}
+<article class="single-page">
+    <header class="page-header section">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+                <ol>
+                    <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+                    {{ if .Section }}
+                    <li><a href="/{{ .Section }}/">{{ .Section | title }}</a></li>
+                    {{ end }}
+                    <li aria-current="page">{{ .Title }}</li>
+                </ol>
+            </nav>
+            
+            <h1>{{ .Title }}</h1>
+            
+            {{ if .Params.summary }}
+            <div class="page-summary">
+                <p class="lead">{{ .Params.summary }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </header>
+    
+    <div class="page-content section">
+        <div class="container">
+            <div class="prose">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</article>
+
+<style>
+.single-page .page-header {
+    background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+    padding: var(--spacing-2xl) 0;
+}
+
+.breadcrumb {
+    margin-bottom: var(--spacing-xl);
+}
+
+.breadcrumb ol {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '›';
+    margin-left: var(--spacing-sm);
+    color: var(--color-gray-400);
+}
+
+.breadcrumb a {
+    color: var(--color-gray-600);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary);
+}
+
+.breadcrumb li[aria-current="page"] {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.page-summary .lead {
+    font-size: var(--font-size-xl);
+    line-height: 1.5;
+    color: var(--color-gray-700);
+    margin: 0;
+}
+
+.prose {
+    line-height: 1.7;
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    max-width: 800px;
+}
+
+.prose h2 {
+    margin-top: var(--spacing-3xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+}
+
+.prose h3 {
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.prose p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.prose ul, .prose ol {
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-xl);
+}
+
+.prose li {
+    margin-bottom: var(--spacing-sm);
+}
+</style>
+{{ end }}

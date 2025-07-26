@@ -57,7 +57,7 @@
         </div>
         
         <div class="talks-grid" role="region" aria-label="Featured talks">
-            {{ range where .Site.RegularPages "Section" "talks" | where .Params.featured true | first 3 }}
+            {{ range first 3 (where (where .Site.RegularPages "Section" "talks") ".Params.featured" true) }}
             <article class="talk-card">
                 <h3 class="talk-title">
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
