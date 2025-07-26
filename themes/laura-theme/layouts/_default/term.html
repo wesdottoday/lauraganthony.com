@@ -1,3 +1,133 @@
 {{ define "main" }}
-{{ template "_default/taxonomy.html" . }}
+<div class="taxonomy-page">
+    <header class="page-header section">
+        <div class="container">
+            <h1>{{ .Title }}</h1>
+            <p class="taxonomy-description">
+                Content tagged with "{{ .Title }}"
+            </p>
+        </div>
+    </header>
+    
+    <section class="taxonomy-content section">
+        <div class="container">
+            {{ if .Pages }}
+            <div class="content-grid">
+                {{ range .Pages }}
+                <article class="content-card">
+                    <h2 class="content-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                    
+                    {{ if .Params.summary }}
+                    <p class="content-summary">{{ .Params.summary }}</p>
+                    {{ else if .Summary }}
+                    <p class="content-summary">{{ .Summary }}</p>
+                    {{ end }}
+                    
+                    <div class="content-meta">
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                        <span class="content-section">{{ .Section | title }}</span>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+            {{ else }}
+            <div class="no-content">
+                <h2>No content found</h2>
+                <p>No content has been tagged with "{{ .Title }}" yet.</p>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+</div>
+
+<style>
+.taxonomy-page .page-header {
+    background-color: var(--color-gray-50);
+    text-align: center;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+}
+
+.taxonomy-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-600);
+    margin-top: var(--spacing-md);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.content-card {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.content-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.content-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.content-title a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.content-title a:hover {
+    color: var(--color-primary);
+}
+
+.content-summary {
+    color: var(--color-gray-600);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.content-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.content-section {
+    background: var(--color-gray-100);
+    color: var(--color-gray-700);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.no-content {
+    text-align: center;
+    padding: var(--spacing-4xl);
+    color: var(--color-gray-500);
+}
+</style>
 {{ end }}
