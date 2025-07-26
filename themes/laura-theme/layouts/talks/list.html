@@ -1,0 +1,333 @@
+{{ define "main" }}
+<div class="talks-index">
+    <header class="page-header section">
+        <div class="container">
+            <h1>{{ .Title }}</h1>
+            {{ if .Content }}
+            <div class="page-content">
+                {{ .Content }}
+            </div>
+            {{ end }}
+        </div>
+    </header>
+    
+    <section class="talks-listing section" aria-label="Available talks">
+        <div class="container">
+            {{ if .Pages }}
+            <div class="talks-grid" role="region" aria-label="Talks grid">
+                {{ range .Pages }}
+                <article class="talk-card" tabindex="0" role="article">
+                    <header class="talk-header">
+                        <h2 class="talk-title">
+                            <a href="{{ .RelPermalink }}" aria-describedby="talk-{{ .File.BaseFileName }}-summary">
+                                {{ .Title }}
+                            </a>
+                        </h2>
+                        
+                        <div class="talk-meta" aria-label="Talk details">
+                            {{ if .Params.duration }}
+                            <span class="talk-duration" aria-label="Duration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                                {{ .Params.duration }}
+                            </span>
+                            {{ end }}
+                            
+                            {{ if .Params.audience }}
+                            <span class="talk-audience" aria-label="Target audience">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                {{ .Params.audience }}
+                            </span>
+                            {{ end }}
+                            
+                            {{ if .Params.featured }}
+                            <span class="talk-featured" aria-label="Featured talk">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                Featured
+                            </span>
+                            {{ end }}
+                        </div>
+                    </header>
+                    
+                    {{ if .Params.summary }}
+                    <div class="talk-summary" id="talk-{{ .File.BaseFileName }}-summary">
+                        <p>{{ .Params.summary }}</p>
+                    </div>
+                    {{ end }}
+                    
+                    {{ if .Params.takeaways }}
+                    <div class="talk-takeaways">
+                        <h3>Key Takeaways:</h3>
+                        <ul role="list">
+                            {{ range .Params.takeaways }}
+                            <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                    
+                    {{ if .Params.tags }}
+                    <div class="talk-tags" aria-label="Topics covered">
+                        {{ range .Params.tags }}
+                        <span class="tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    
+                    <footer class="talk-footer">
+                        <a href="{{ .RelPermalink }}" 
+                           class="talk-link" 
+                           aria-label="Read more about {{ .Title }}">
+                            Learn More
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12,5 19,12 12,19"/>
+                            </svg>
+                        </a>
+                        
+                        <time datetime="{{ .Date.Format "2006-01-02" }}" class="talk-date">
+                            Updated {{ .Date.Format "January 2, 2006" }}
+                        </time>
+                    </footer>
+                </article>
+                {{ end }}
+            </div>
+            {{ else }}
+            <div class="no-content" role="status" aria-live="polite">
+                <h2>No talks available yet</h2>
+                <p>Check back soon for Laura's latest speaking engagements and presentations.</p>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+</div>
+
+<style>
+/* Talks index page specific styles */
+.talks-index .page-header {
+    background-color: var(--color-gray-50);
+    text-align: center;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+}
+
+.talks-index .page-header h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text);
+}
+
+.page-content {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-600);
+}
+
+.talks-listing {
+    padding-top: 0;
+}
+
+.talks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+    .talks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .talks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.talk-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.talk-card:hover,
+.talk-card:focus {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+}
+
+.talk-card:focus {
+    outline: none;
+}
+
+.talk-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.talk-title {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-2xl);
+}
+
+.talk-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.talk-title a:hover,
+.talk-title a:focus {
+    color: var(--color-primary);
+}
+
+.talk-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.talk-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.talk-featured {
+    color: var(--color-callout) !important;
+    font-weight: 600;
+}
+
+.talk-summary {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-gray-600);
+    line-height: 1.6;
+}
+
+.talk-takeaways {
+    margin-bottom: var(--spacing-lg);
+}
+
+.talk-takeaways h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.talk-takeaways ul {
+    list-style: none;
+    padding: 0;
+}
+
+.talk-takeaways li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.5;
+}
+
+.talk-takeaways li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.talk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tag {
+    background: var(--color-gray-100);
+    color: var(--color-gray-700);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.talk-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.talk-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.talk-link:hover,
+.talk-link:focus {
+    color: var(--color-secondary);
+    transform: translateX(2px);
+}
+
+.talk-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.no-content {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-lg);
+    color: var(--color-gray-500);
+}
+
+.no-content h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-700);
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+    .talk-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .talk-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .talk-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .talk-meta {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+</style>
+{{ end }}

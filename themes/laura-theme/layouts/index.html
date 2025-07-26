@@ -1,0 +1,210 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-background" style="background-image: url('{{ .Site.Params.hero.backgroundImage | relURL }}');" role="img" aria-label="Hero background image"></div>
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 id="hero-title" class="hero-title">{{ .Site.Params.hero.title }}</h1>
+            <p class="hero-subtitle">{{ .Site.Params.hero.subtitle }}</p>
+        </div>
+        <div class="hero-image">
+            <img src="{{ .Site.Params.hero.foregroundImage | relURL }}" alt="Laura Anthony, Speaker and Accessibility Advocate" loading="eager">
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="introduction section" aria-labelledby="intro-title">
+    <div class="container">
+        <div class="intro-content {{ if eq .Site.Params.introduction.imagePosition "right" }}intro-content--reverse{{ end }}">
+            <div class="intro-text">
+                <h2 id="intro-title">{{ .Site.Params.introduction.title }}</h2>
+                <p>{{ .Site.Params.introduction.content | safeHTML }}</p>
+            </div>
+            <div class="intro-image">
+                <img src="{{ .Site.Params.introduction.image | relURL }}" alt="Laura Anthony working on accessibility consulting" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meet Laura Section -->
+<section class="meet-laura section" aria-labelledby="meet-laura-title">
+    <div class="container">
+        <div class="meet-laura-content {{ if eq .Site.Params.meetLaura.imagePosition "left" }}meet-laura-content--reverse{{ end }}">
+            <div class="meet-laura-text">
+                <h2 id="meet-laura-title">{{ .Site.Params.meetLaura.title }}</h2>
+                <h3 class="meet-laura-subtitle">{{ .Site.Params.meetLaura.subtitle }}</h3>
+                <p>{{ .Site.Params.meetLaura.content | safeHTML }}</p>
+                <a href="{{ .Site.Params.meetLaura.ctaLink }}" class="cta-button" aria-describedby="meet-laura-title">
+                    {{ .Site.Params.meetLaura.ctaText }}
+                </a>
+            </div>
+            <div class="meet-laura-image">
+                <img src="{{ .Site.Params.meetLaura.image | relURL }}" alt="Laura Anthony speaking at a conference" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Signature Talks Section -->
+<section class="signature-talks section" aria-labelledby="signature-talks-title">
+    <div class="container">
+        <div class="section-header">
+            <h2 id="signature-talks-title">{{ .Site.Params.signatureTalks.title }}</h2>
+            <p class="section-subtitle">{{ .Site.Params.signatureTalks.subtitle }}</p>
+        </div>
+        
+        <div class="talks-grid" role="region" aria-label="Featured talks">
+            {{ range where .Site.RegularPages "Section" "talks" | where .Params.featured true | first 3 }}
+            <article class="talk-card">
+                <h3 class="talk-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+                <p class="talk-summary">{{ .Params.summary }}</p>
+                <div class="talk-meta">
+                    <span class="talk-duration" aria-label="Talk duration">{{ .Params.duration }}</span>
+                    <span class="talk-audience" aria-label="Target audience">{{ .Params.audience }}</span>
+                </div>
+                {{ if .Params.takeaways }}
+                <div class="takeaways">
+                    <h4>Audience Takeaways:</h4>
+                    <ul>
+                        {{ range .Params.takeaways }}
+                        <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+                <a href="{{ .RelPermalink }}" class="talk-link" aria-label="Learn more about {{ .Title }}">
+                    Learn More
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Banner Section -->
+<section class="cta-banner section" aria-labelledby="cta-banner-title">
+    <div class="container">
+        <div class="cta-banner-content">
+            <h2 id="cta-banner-title">{{ .Site.Params.ctaBanner.title }}</h2>
+            <p class="cta-banner-subtitle">{{ .Site.Params.ctaBanner.subtitle }}</p>
+            <p class="cta-banner-text">{{ .Site.Params.ctaBanner.content }}</p>
+            <a href="{{ .Site.Params.ctaBanner.ctaLink }}" class="cta-button cta-button--large">
+                {{ .Site.Params.ctaBanner.ctaText }}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Quotes Section -->
+<section class="customer-quotes section" aria-labelledby="quotes-title">
+    <div class="container">
+        <h2 id="quotes-title">{{ .Site.Params.customerQuotes.title }}</h2>
+        
+        <div class="quotes-grid" role="region" aria-label="Customer testimonials">
+            {{ $quotes := where .Site.RegularPages "Section" "quotes" }}
+            {{ if .Site.Params.customerQuotes.randomize }}
+                {{ $quotes = $quotes | shuffle }}
+            {{ end }}
+            {{ range $quotes | first (.Site.Params.customerQuotes.showCount | default 3) }}
+            <blockquote class="quote-card">
+                <p class="quote-text">"{{ .Params.quote }}"</p>
+                <footer class="quote-attribution">
+                    <cite class="quote-author">{{ .Params.author }}</cite>
+                    {{ if .Params.title_position }}
+                    <span class="quote-title">{{ .Params.title_position }}</span>
+                    {{ end }}
+                    {{ if .Params.company }}
+                    <span class="quote-company">{{ .Params.company }}</span>
+                    {{ end }}
+                </footer>
+            </blockquote>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Customer Logos Section -->
+<section class="customer-logos section" aria-labelledby="logos-title">
+    <div class="container">
+        <h2 id="logos-title">{{ .Site.Params.customerLogos.title }}</h2>
+        <div class="logos-carousel" role="img" aria-label="Logos of companies Laura has worked with">
+            <div class="logos-track">
+                <!-- Placeholder logos - replace with actual client logos -->
+                <div class="logo-item">
+                    <img src="https://logoipsum.com/logo/logo-1.svg" alt="Client logo 1" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="https://logoipsum.com/logo/logo-2.svg" alt="Client logo 2" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="https://logoipsum.com/logo/logo-3.svg" alt="Client logo 3" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="https://logoipsum.com/logo/logo-4.svg" alt="Client logo 4" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="https://logoipsum.com/logo/logo-5.svg" alt="Client logo 5" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="https://logoipsum.com/logo/logo-6.svg" alt="Client logo 6" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Let's Connect Section -->
+<section class="contact section" aria-labelledby="contact-title">
+    <div class="container">
+        <h2 id="contact-title">{{ .Site.Params.contact.title }}</h2>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Website</h3>
+                    <a href="{{ .Site.Params.website }}">{{ .Site.Params.website }}</a>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn</h3>
+                    <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer">
+                        Connect on LinkedIn
+                        <span class="sr-only">(opens in new window)</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form action="https://formspree.io/f/{{ .Site.Params.formspreeId }}" method="post" aria-label="Contact form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">{{ .Site.Params.contact.ctaText }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,119 @@
+{{/*
+  Callout shortcode for highlighting important text with the brand's callout color
+  Usage: {{< callout >}}Your important text here{{< /callout >}}
+  Usage: {{< callout class="warning" >}}Warning text{{< /callout >}}
+  Usage: {{< callout class="info" >}}Info text{{< /callout >}}
+*/}}
+
+{{ $class := .Get "class" | default "default" }}
+{{ $id := .Get "id" | default "" }}
+{{ $ariaLabel := .Get "aria-label" | default "" }}
+
+<div class="callout callout--{{ $class }}"
+     {{ if $id }}id="{{ $id }}"{{ end }}
+     {{ if $ariaLabel }}aria-label="{{ $ariaLabel }}"{{ end }}
+     role="note">
+    <div class="callout-content">
+        {{ .Inner | markdownify }}
+    </div>
+</div>
+
+<style>
+.callout {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-xl) 0;
+    border-left: 4px solid;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.callout--default {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left-color: var(--color-callout);
+    color: var(--color-text);
+}
+
+.callout--warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left-color: #f59e0b;
+    color: var(--color-text);
+}
+
+.callout--info {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-left-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.callout--success {
+    background-color: rgba(34, 197, 94, 0.1);
+    border-left-color: #22c55e;
+    color: var(--color-text);
+}
+
+.callout-content {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+.callout-content p:last-child {
+    margin-bottom: 0;
+}
+
+.callout-content strong,
+.callout-content b {
+    color: var(--color-callout);
+}
+
+.callout--warning .callout-content strong,
+.callout--warning .callout-content b {
+    color: #f59e0b;
+}
+
+.callout--info .callout-content strong,
+.callout--info .callout-content b {
+    color: var(--color-primary);
+}
+
+.callout--success .callout-content strong,
+.callout--success .callout-content b {
+    color: #22c55e;
+}
+
+/* Accessibility improvements */
+@media (prefers-contrast: high) {
+    .callout {
+        border-width: 2px;
+        border-style: solid;
+    }
+    
+    .callout--default {
+        background-color: rgba(239, 68, 68, 0.2);
+        border-color: var(--color-callout);
+    }
+    
+    .callout--warning {
+        background-color: rgba(245, 158, 11, 0.2);
+        border-color: #f59e0b;
+    }
+    
+    .callout--info {
+        background-color: rgba(37, 99, 235, 0.2);
+        border-color: var(--color-primary);
+    }
+    
+    .callout--success {
+        background-color: rgba(34, 197, 94, 0.2);
+        border-color: #22c55e;
+    }
+}
+
+/* Print styles */
+@media print {
+    .callout {
+        border: 1px solid #333;
+        break-inside: avoid;
+    }
+}
+</style>

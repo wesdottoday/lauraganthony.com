@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "en" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    
+    <!-- Accessibility improvements -->
+    <meta name="theme-color" content="{{ .Site.Params.brandColors.primary }}">
+    <meta name="color-scheme" content="light">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font loading with fallbacks -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    
+    <!-- Skip to content link for screen readers -->
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: {{ .Site.Params.brandColors.primary }};
+            color: white;
+            padding: 8px;
+            z-index: 1000;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    {{ partial "navigation.html" . }}
+    
+    <!-- Main content -->
+    <main id="main-content" role="main" tabindex="-1">
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+    
+    <!-- JavaScript -->
+    <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>
