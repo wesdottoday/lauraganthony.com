@@ -2,14 +2,14 @@
 
 <!-- Hero Section -->
 <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-background" style="background-image: url('{{ .Site.Params.hero.backgroundImage | relURL }}');" role="img" aria-label="Hero background image"></div>
+    <div class="hero-background" style="background-image: url('{{ .Site.BaseURL }}{{ .Site.Params.hero.backgroundImage }}');" role="img" aria-label="Hero background image"></div>
     <div class="hero-content">
         <div class="hero-text">
             <h1 id="hero-title" class="hero-title">{{ .Site.Params.hero.title | safeHTML }}</h1>
             <p class="hero-subtitle">{{ .Site.Params.hero.subtitle | safeHTML }}</p>
         </div>
         <div class="hero-image">
-            <img src="{{ .Site.Params.hero.foregroundImage | relURL }}" alt="Laura Anthony, Speaker and Accessibility Advocate" loading="eager">
+            <img src="{{ .Site.BaseURL }}{{ .Site.Params.hero.foregroundImage }}" alt="Laura Anthony, Speaker and Accessibility Advocate" loading="eager">
         </div>
     </div>
 </section>
@@ -23,7 +23,7 @@
                 <p>{{ .Site.Params.introduction.content | safeHTML }}</p>
             </div>
             <div class="intro-image">
-                <img src="{{ .Site.Params.introduction.image | relURL }}" alt="Laura Anthony working on accessibility consulting" loading="lazy">
+                <img src="{{ .Site.BaseURL }}{{ .Site.Params.introduction.image }}" alt="Laura Anthony working on accessibility consulting" loading="lazy">
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
                 </button>
             </div>
             <div class="lead-capture-image">
-                <img src="{{ .Site.Params.leadCapture.image | relURL }}" alt="Neuroinclusive interview guide preview" loading="lazy">
+                <img src="{{ .Site.BaseURL }}{{ .Site.Params.leadCapture.image }}" alt="Neuroinclusive interview guide preview" loading="lazy">
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
                 </button>
             </div>
             <div class="meet-laura-image">
-                <img src="{{ .Site.Params.meetLaura.image | relURL }}" alt="Laura Anthony speaking at a conference" loading="lazy">
+                <img src="{{ .Site.BaseURL }}{{ .Site.Params.meetLaura.image }}" alt="Laura Anthony speaking at a conference" loading="lazy">
             </div>
         </div>
     </div>
