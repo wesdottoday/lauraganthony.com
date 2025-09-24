@@ -340,7 +340,7 @@ a:hover {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 85vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -351,10 +351,10 @@ a:hover {
 
 .hero-background {
     position: absolute;
-    bottom: 0;
+    bottom: 5vh;
     left: 0;
     width: 100%;
-    height: 25vh;
+    height: 21vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
