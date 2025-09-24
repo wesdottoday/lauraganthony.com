@@ -5,8 +5,8 @@
     <div class="hero-background" style="background-image: url('{{ .Site.Params.hero.backgroundImage | relURL }}');" role="img" aria-label="Hero background image"></div>
     <div class="hero-content">
         <div class="hero-text">
-            <h1 id="hero-title" class="hero-title">{{ .Site.Params.hero.title }}</h1>
-            <p class="hero-subtitle">{{ .Site.Params.hero.subtitle }}</p>
+            <h1 id="hero-title" class="hero-title">{{ .Site.Params.hero.title | safeHTML }}</h1>
+            <p class="hero-subtitle">{{ .Site.Params.hero.subtitle | safeHTML }}</p>
         </div>
         <div class="hero-image">
             <img src="{{ .Site.Params.hero.foregroundImage | relURL }}" alt="Laura Anthony, Speaker and Accessibility Advocate" loading="eager">
@@ -17,9 +17,9 @@
 <!-- Introduction Section -->
 <section class="introduction section" aria-labelledby="intro-title">
     <div class="container">
-        <div class="intro-content {{ if eq .Site.Params.introduction.imagePosition "right" }}intro-content--reverse{{ end }}">
+        <div class="intro-content {{ if eq .Site.Params.introduction.imagePosition "left" }}intro-content--image-left{{ else }}intro-content--image-right{{ end }}">
             <div class="intro-text">
-                <h2 id="intro-title">{{ .Site.Params.introduction.title }}</h2>
+                <h2 id="intro-title">{{ .Site.Params.introduction.title | safeHTML }}</h2>
                 <p>{{ .Site.Params.introduction.content | safeHTML }}</p>
             </div>
             <div class="intro-image">
@@ -29,17 +29,35 @@
     </div>
 </section>
 
+<!-- Lead Capture Section -->
+<section class="lead-capture section" aria-labelledby="lead-capture-title">
+    <div class="container">
+        <div class="lead-capture-content {{ if eq .Site.Params.leadCapture.imagePosition "left" }}lead-capture-content--image-left{{ else }}lead-capture-content--image-right{{ end }}">
+            <div class="lead-capture-text">
+                <h2 id="lead-capture-title">{{ .Site.Params.leadCapture.title | safeHTML }}</h2>
+                <p>{{ .Site.Params.leadCapture.content | safeHTML }}</p>
+                <button id="leadMagnetTrigger" class="cta-button" aria-describedby="lead-capture-title">
+                    {{ .Site.Params.leadCapture.ctaText }}
+                </button>
+            </div>
+            <div class="lead-capture-image">
+                <img src="{{ .Site.Params.leadCapture.image | relURL }}" alt="Neuroinclusive interview guide preview" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Meet Laura Section -->
 <section class="meet-laura section" aria-labelledby="meet-laura-title">
     <div class="container">
-        <div class="meet-laura-content {{ if eq .Site.Params.meetLaura.imagePosition "left" }}meet-laura-content--reverse{{ end }}">
+        <div class="meet-laura-content {{ if eq .Site.Params.meetLaura.imagePosition "left" }}meet-laura-content--image-left{{ else }}meet-laura-content--image-right{{ end }}">
             <div class="meet-laura-text">
-                <h2 id="meet-laura-title">{{ .Site.Params.meetLaura.title }}</h2>
-                <h3 class="meet-laura-subtitle">{{ .Site.Params.meetLaura.subtitle }}</h3>
+                <h2 id="meet-laura-title">{{ .Site.Params.meetLaura.title | safeHTML }}</h2>
+                <h3 class="meet-laura-subtitle">{{ .Site.Params.meetLaura.subtitle | safeHTML }}</h3>
                 <p>{{ .Site.Params.meetLaura.content | safeHTML }}</p>
-                <a href="{{ .Site.Params.meetLaura.ctaLink }}" class="cta-button" aria-describedby="meet-laura-title">
+                <button id="contactModalTrigger" class="cta-button" aria-describedby="meet-laura-title">
                     {{ .Site.Params.meetLaura.ctaText }}
-                </a>
+                </button>
             </div>
             <div class="meet-laura-image">
                 <img src="{{ .Site.Params.meetLaura.image | relURL }}" alt="Laura Anthony speaking at a conference" loading="lazy">
@@ -52,34 +70,44 @@
 <section class="signature-talks section" aria-labelledby="signature-talks-title">
     <div class="container">
         <div class="section-header">
-            <h2 id="signature-talks-title">{{ .Site.Params.signatureTalks.title }}</h2>
-            <p class="section-subtitle">{{ .Site.Params.signatureTalks.subtitle }}</p>
+            <h2 id="signature-talks-title">{{ .Site.Params.signatureTalks.title | safeHTML }}</h2>
+            <p class="section-subtitle">{{ .Site.Params.signatureTalks.subtitle | safeHTML }}</p>
         </div>
         
         <div class="talks-grid" role="region" aria-label="Featured talks">
-            {{ range first 3 (where (where .Site.RegularPages "Section" "talks") ".Params.featured" true) }}
+            {{ range first 4 (where (where .Site.RegularPages "Section" "talks") ".Params.featured" true) }}
             <article class="talk-card">
-                <h3 class="talk-title">
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h3>
-                <p class="talk-summary">{{ .Params.summary }}</p>
-                <div class="talk-meta">
-                    <span class="talk-duration" aria-label="Talk duration">{{ .Params.duration }}</span>
-                    <span class="talk-audience" aria-label="Target audience">{{ .Params.audience }}</span>
+                <div class="talk-card-header">
+                    <h3 class="talk-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
                 </div>
-                {{ if .Params.takeaways }}
-                <div class="takeaways">
-                    <h4>Audience Takeaways:</h4>
-                    <ul>
-                        {{ range .Params.takeaways }}
-                        <li>{{ . }}</li>
-                        {{ end }}
-                    </ul>
+                <div class="talk-card-content">
+                    {{ if .Params.subtitle }}
+                    <p class="talk-subtitle">{{ .Params.subtitle }}</p>
+                    {{ end }}
+                    <p class="talk-summary">{{ .Params.summary }}</p>
+                    <div class="talk-meta">
+                        <span class="talk-duration" aria-label="Talk duration">{{ .Params.duration }}</span>
+                        <span class="talk-audience" aria-label="Target audience">{{ .Params.audience }}</span>
+                    </div>
+                    {{ if .Params.takeaways }}
+                    <div class="takeaways">
+                        <h4>Audience Takeaways:</h4>
+                        <ul>
+                            {{ range .Params.takeaways }}
+                            <li>{{ . }}</li>
+
+
+
+{{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                    <a href="{{ .RelPermalink }}" class="talk-link" aria-label="Learn more about {{ .Title }}">
+                        Learn More
+                    </a>
                 </div>
-                {{ end }}
-                <a href="{{ .RelPermalink }}" class="talk-link" aria-label="Learn more about {{ .Title }}">
-                    Learn More
-                </a>
             </article>
             {{ end }}
         </div>
@@ -90,9 +118,8 @@
 <section class="cta-banner section" aria-labelledby="cta-banner-title">
     <div class="container">
         <div class="cta-banner-content">
-            <h2 id="cta-banner-title">{{ .Site.Params.ctaBanner.title }}</h2>
-            <p class="cta-banner-subtitle">{{ .Site.Params.ctaBanner.subtitle }}</p>
-            <p class="cta-banner-text">{{ .Site.Params.ctaBanner.content }}</p>
+            <h2 id="cta-banner-title">{{ .Site.Params.ctaBanner.title | safeHTML }}</h2>
+            <p class="cta-banner-subtitle">{{ .Site.Params.ctaBanner.subtitle | safeHTML }}</p>
             <a href="{{ .Site.Params.ctaBanner.ctaLink }}" class="cta-button cta-button--large">
                 {{ .Site.Params.ctaBanner.ctaText }}
             </a>
@@ -103,106 +130,155 @@
 <!-- Customer Quotes Section -->
 <section class="customer-quotes section" aria-labelledby="quotes-title">
     <div class="container">
-        <h2 id="quotes-title">{{ .Site.Params.customerQuotes.title }}</h2>
+        <h2 id="quotes-title">{{ .Site.Params.customerQuotes.title | safeHTML }}</h2>
         
         <div class="quotes-grid" role="region" aria-label="Customer testimonials">
             {{ $quotes := where .Site.RegularPages "Section" "quotes" }}
             {{ if .Site.Params.customerQuotes.randomize }}
                 {{ $quotes = $quotes | shuffle }}
             {{ end }}
-            {{ range $quotes | first (.Site.Params.customerQuotes.showCount | default 3) }}
-            <blockquote class="quote-card">
-                <p class="quote-text">"{{ .Params.quote }}"</p>
+            {{ range $quotes }}
+            <div class="quote-container">
+                <blockquote class="quote-bubble">
+                    <div class="quote-content">
+                        <p class="quote-text">"{{ .Params.quote }}"</p>
+                    </div>
+                </blockquote>
                 <footer class="quote-attribution">
-                    <cite class="quote-author">{{ .Params.author }}</cite>
-                    {{ if .Params.title_position }}
-                    <span class="quote-title">{{ .Params.title_position }}</span>
-                    {{ end }}
-                    {{ if .Params.company }}
-                    <span class="quote-company">{{ .Params.company }}</span>
-                    {{ end }}
+                    <cite class="quote-author">{{ .Params.author }}</cite>{{ if .Params.title_position }} - {{ .Params.title_position }}{{ end }}{{ if .Params.company }}, {{ .Params.company }}{{ end }}
                 </footer>
-            </blockquote>
+            </div>
             {{ end }}
         </div>
     </div>
 </section>
 
-<!-- Customer Logos Section -->
-<section class="customer-logos section" aria-labelledby="logos-title">
-    <div class="container">
-        <h2 id="logos-title">{{ .Site.Params.customerLogos.title }}</h2>
-        <div class="logos-carousel" role="img" aria-label="Logos of companies Laura has worked with">
-            <div class="logos-track">
-                <!-- Placeholder logos - replace with actual client logos -->
-                <div class="logo-item">
-                    <img src="https://logoipsum.com/logo/logo-1.svg" alt="Client logo 1" loading="lazy">
-                </div>
-                <div class="logo-item">
-                    <img src="https://logoipsum.com/logo/logo-2.svg" alt="Client logo 2" loading="lazy">
-                </div>
-                <div class="logo-item">
-                    <img src="https://logoipsum.com/logo/logo-3.svg" alt="Client logo 3" loading="lazy">
-                </div>
-                <div class="logo-item">
-                    <img src="https://logoipsum.com/logo/logo-4.svg" alt="Client logo 4" loading="lazy">
-                </div>
-                <div class="logo-item">
-                    <img src="https://logoipsum.com/logo/logo-5.svg" alt="Client logo 5" loading="lazy">
-                </div>
-                <div class="logo-item">
-                    <img src="https://logoipsum.com/logo/logo-6.svg" alt="Client logo 6" loading="lazy">
-                </div>
+
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-overlay" role="presentation"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Contact Laura</h2>
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="mc_embed_signup">
+                <form action="https://incompliance.us17.list-manage.com/subscribe/post?u=2ab78ce09a13847b591fe7b16&amp;id=395729ec5c&amp;f_id=00fe55e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                    <div id="mc_embed_signup_scroll">
+                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                        
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                        </div>
+                        
+                        <div class="mc-field-group">
+                            <label for="mce-FNAME">First Name <span class="asterisk">*</span></label>
+                            <input type="text" name="FNAME" class="required text" id="mce-FNAME" value="" required="">
+                        </div>
+                        
+                        <div class="mc-field-group">
+                            <label for="mce-LNAME">Last Name <span class="asterisk">*</span></label>
+                            <input type="text" name="LNAME" class="required text" id="mce-LNAME" required="" value="">
+                        </div>
+                        
+                        <div class="mc-field-group">
+                            <label for="mce-MMERGE8">Job Role</label>
+                            <input type="text" name="MMERGE8" class="text" id="mce-MMERGE8" value="">
+                        </div>
+                        
+                        <div class="mc-field-group">
+                            <label for="mce-COMPANY">Company <span class="asterisk">*</span></label>
+                            <input type="text" name="COMPANY" class="required text" id="mce-COMPANY" required="" value="">
+                        </div>
+                        
+                        <div class="mc-field-group input-group">
+                            <strong>Do you or someone you know book speakers?</strong>
+                            <ul>
+                                <li><input type="radio" name="MMERGE7" id="mce-MMERGE70" value="Yes"><label for="mce-MMERGE70">Yes</label></li>
+                                <li><input type="radio" name="MMERGE7" id="mce-MMERGE71" value="No"><label for="mce-MMERGE71">No</label></li>
+                            </ul>
+                        </div>
+                        
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display: none;"></div>
+                            <div class="response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                        
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_2ab78ce09a13847b591fe7b16_395729ec5c" tabindex="-1" value="">
+                        </div>
+                        
+                        <div class="clear">
+                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Let's Connect Section -->
+<!-- Contact Info Section -->
 <section class="contact section" aria-labelledby="contact-title">
     <div class="container">
-        <h2 id="contact-title">{{ .Site.Params.contact.title }}</h2>
+        <div class="contact-header">
+            <h2 id="contact-title">{{ .Site.Params.contact.title | safeHTML }}</h2>
+            <p class="contact-subtitle">Ready to unlock your team's potential? Let's start the conversation.</p>
+        </div>
         
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+        <div class="contact-grid">
+            <div class="contact-card contact-card--primary">
+                <div class="contact-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
                 </div>
-                <div class="contact-item">
-                    <h3>Website</h3>
-                    <a href="{{ .Site.Params.website }}">{{ .Site.Params.website }}</a>
-                </div>
-                <div class="contact-item">
-                    <h3>LinkedIn</h3>
-                    <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer">
-                        Connect on LinkedIn
-                        <span class="sr-only">(opens in new window)</span>
-                    </a>
-                </div>
+                <h3>Email Me</h3>
+                <p>For speaking inquiries, consulting opportunities, or general questions</p>
+                <a href="mailto:{{ .Site.Params.email }}" class="contact-cta">
+                    {{ .Site.Params.email }}
+                </a>
             </div>
             
-            <div class="contact-form">
-                <form action="https://formspree.io/f/{{ .Site.Params.formspreeId }}" method="post" aria-label="Contact form">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">{{ .Site.Params.contact.ctaText }}</button>
-                </form>
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </div>
+                <h3>Connect on LinkedIn</h3>
+                <p>Join my network for insights on neuroinclusion and workplace innovation</p>
+                <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer" class="contact-cta">
+                    View Profile
+                    <span class="sr-only">(opens in new window)</span>
+                </a>
             </div>
+            
+            <div class="contact-card contact-card--highlight">
+                <div class="contact-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3>Speaking Engagements</h3>
+                <p>Book Laura for your next conference, workshop, or corporate training</p>
+                <button id="contactTrigger" class="contact-cta contact-cta--primary">
+                    Book Speaking
+                </button>
+            </div>
+        </div>
+        
+        <div class="contact-footer">
+            <p class="contact-note">
+                <span class="highlight-green">Available for:</span> Keynote presentations, workshops, consulting, and organizational assessments
+            </p>
         </div>
     </div>
 </section>

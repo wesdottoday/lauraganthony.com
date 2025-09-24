@@ -9,17 +9,20 @@
     
     <!-- Accessibility improvements -->
     <meta name="theme-color" content="{{ .Site.Params.brandColors.primary }}">
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="dark">
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Font loading with fallbacks -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font loading with dyslexia-friendly alternatives -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    
+    <!-- Mailchimp CSS -->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     
     <!-- Skip to content link for screen readers -->
     <style>
@@ -56,5 +59,24 @@
     
     <!-- JavaScript -->
     <script src="{{ "js/main.js" | relURL }}"></script>
+    
+    <!-- Mailchimp JavaScript -->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+        (function($) {
+            window.fnames = new Array(); 
+            window.ftypes = new Array();
+            fnames[0]='EMAIL';ftypes[0]='email';
+            fnames[1]='FNAME';ftypes[1]='text';
+            fnames[2]='LNAME';ftypes[2]='text';
+            fnames[8]='MMERGE8';ftypes[8]='text';
+            fnames[6]='COMPANY';ftypes[6]='text';
+            fnames[7]='MMERGE7';ftypes[7]='radio';
+            fnames[3]='ADDRESS';ftypes[3]='address';
+            fnames[4]='PHONE';ftypes[4]='phone';
+            fnames[5]='BIRTHDAY';ftypes[5]='birthday';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
+    </script>
 </body>
 </html>

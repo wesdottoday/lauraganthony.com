@@ -9,7 +9,7 @@
     // DOM elements
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    const navigation = document.querySelector('.navigation');
+    const navigation = document.querySelector('.hamburger-nav');
     const hero = document.querySelector('.hero');
     
     // State
@@ -25,6 +25,7 @@
         setupFormEnhancements();
         setupAccessibilityFeatures();
         setupLogoCarousel();
+        setupModal();
     }
     
     /**
@@ -34,6 +35,10 @@
         if (!navToggle || !navMenu) return;
         
         navToggle.addEventListener('click', toggleMobileMenu);
+        navToggle.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            toggleMobileMenu();
+        });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
@@ -67,14 +72,14 @@
         navToggle.setAttribute('aria-expanded', isMenuOpen.toString());
         
         if (isMenuOpen) {
-            navMenu.classList.add('active');
+            navMenu.classList.add('nav-menu--open');
             // Focus first menu item for keyboard navigation
             const firstMenuItem = navMenu.querySelector('.nav-link');
             if (firstMenuItem) {
                 firstMenuItem.focus();
             }
         } else {
-            navMenu.classList.remove('active');
+            navMenu.classList.remove('nav-menu--open');
         }
     }
     
@@ -84,7 +89,7 @@
     function closeMobileMenu() {
         isMenuOpen = false;
         navToggle.setAttribute('aria-expanded', 'false');
-        navMenu.classList.remove('active');
+        navMenu.classList.remove('nav-menu--open');
     }
     
     /**
@@ -333,6 +338,96 @@
             const clone = logos[i].cloneNode(true);
             track.appendChild(clone);
         }
+    }
+    
+    /**
+     * Setup modal functionality
+     */
+    function setupModal() {
+        const contactModalTrigger = document.getElementById('contactModalTrigger');
+        const leadMagnetTrigger = document.getElementById('leadMagnetTrigger');
+        const contactTrigger = document.getElementById('contactTrigger');
+        const modal = document.getElementById('contactModal');
+        const modalClose = document.querySelector('.modal-close');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const form = document.getElementById('mc-embedded-subscribe-form');
+        
+        if (!modal) return;
+        
+        // Track which button opened the modal
+        let activeModalTrigger = null;
+        
+        // Open modal
+        function openModal(triggerElement) {
+            activeModalTrigger = triggerElement;
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus the first input field
+            setTimeout(() => {
+                const firstInput = modal.querySelector('input');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+        
+        // Close modal
+        function closeModal() {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            // Return focus to the specific button that opened the modal
+            if (activeModalTrigger) {
+                activeModalTrigger.focus();
+                activeModalTrigger = null;
+            }
+        }
+        
+        // Event listeners
+        if (contactModalTrigger) {
+            contactModalTrigger.addEventListener('click', function() {
+                openModal(contactModalTrigger);
+            });
+        }
+        
+        if (leadMagnetTrigger) {
+            leadMagnetTrigger.addEventListener('click', function() {
+                openModal(leadMagnetTrigger);
+            });
+        }
+        
+        if (contactTrigger) {
+            contactTrigger.addEventListener('click', function() {
+                openModal(contactTrigger);
+            });
+        }
+        
+        // Handle form submission for lead magnet redirect
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                // Allow the form to submit to Mailchimp first
+                setTimeout(function() {
+                    // Redirect to PDF after a short delay to allow form submission
+                    window.open('/neuroinclusive-interview-tips.pdf', '_blank');
+                    closeModal();
+                }, 1000);
+            });
+        }
+        
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+        
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', closeModal);
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
     }
     
     // Initialize when DOM is ready

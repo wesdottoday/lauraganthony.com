@@ -1,36 +1,28 @@
-<nav class="navigation" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-        <!-- Site logo/title -->
-        <div class="nav-brand">
-            <a href="{{ .Site.BaseURL }}" class="nav-logo" aria-label="Laura Anthony homepage">
-                <span class="nav-title">{{ .Site.Title }}</span>
-            </a>
-        </div>
-        
-        <!-- Hamburger menu button -->
-        <button class="nav-toggle" 
-                aria-expanded="false" 
-                aria-controls="nav-menu" 
-                aria-label="Toggle navigation menu"
-                id="nav-toggle">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-        
-        <!-- Navigation menu -->
-        <div class="nav-menu" id="nav-menu" role="menu">
-            <ul class="nav-list">
-                {{ range .Site.Menus.main }}
-                <li class="nav-item" role="none">
-                    <a href="{{ .URL }}" 
-                       class="nav-link {{ if $.IsMenuCurrent "main" . }}nav-link--active{{ end }}"
-                       role="menuitem">
-                        {{ .Name }}
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
+<!-- Hamburger menu only (positioned fixed top-right) -->
+<nav class="hamburger-nav" role="navigation" aria-label="Main navigation">
+    <!-- Hamburger menu button -->
+    <button class="nav-toggle" 
+            aria-expanded="false" 
+            aria-controls="nav-menu" 
+            aria-label="Toggle navigation menu"
+            id="nav-toggle">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    
+    <!-- Navigation menu (hidden by default) -->
+    <div class="nav-menu" id="nav-menu" role="menu">
+        <ul class="nav-list">
+            {{ range .Site.Menus.main }}
+            <li class="nav-item" role="none">
+                <a href="{{ .URL }}" 
+                   class="nav-link {{ if $.IsMenuCurrent "main" . }}nav-link--active{{ end }}"
+                   role="menuitem">
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
     </div>
 </nav>

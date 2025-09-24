@@ -2,7 +2,7 @@
 <div class="list-page">
     <header class="page-header section">
         <div class="container">
-            <h1>{{ .Title }}</h1>
+            <h1>{{ .Title | safeHTML }}</h1>
             {{ if .Content }}
             <div class="page-content">
                 {{ .Content }}

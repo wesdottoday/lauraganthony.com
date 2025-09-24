@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Quotes on Laura Anthony - Speaker &amp; Accessibility Advocate</title>
-    <link>http://localhost:1313/quotes/</link>
-    <description>Recent content in Quotes on Laura Anthony - Speaker &amp; Accessibility Advocate</description>
+    <title>Quotes on Laura Anthony - Speaker &amp; Neuroinclusive Leader</title>
+    <link>http://localhost:8080/quotes/</link>
+    <description>Recent content in Quotes on Laura Anthony - Speaker &amp; Neuroinclusive Leader</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Jul 2025 08:41:50 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/quotes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:8080/quotes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jennifer Rodriguez - Global Enterprise</title>
-      <link>http://localhost:1313/quotes/jennifer-enterprise/</link>
+      <title>Chandra Cook, US Department of Defense</title>
+      <link>http://localhost:8080/quotes/chandra-cook/</link>
       <pubDate>Sat, 26 Jul 2025 08:41:50 -0400</pubDate>
-      <guid>http://localhost:1313/quotes/jennifer-enterprise/</guid>
+      <guid>http://localhost:8080/quotes/chandra-cook/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mike Chen - InnovateLab</title>
-      <link>http://localhost:1313/quotes/mike-startup/</link>
+      <title>Collins Saint, American Bar Association</title>
+      <link>http://localhost:8080/quotes/collins-saint/</link>
+      <pubDate>Sat, 26 Jul 2025 08:41:50 -0400</pubDate>
+      <guid>http://localhost:8080/quotes/collins-saint/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dr. Perry Zirkel</title>
+      <link>http://localhost:8080/quotes/perry-zirkel/</link>
       <pubDate>Sat, 26 Jul 2025 08:41:39 -0400</pubDate>
-      <guid>http://localhost:1313/quotes/mike-startup/</guid>
+      <guid>http://localhost:8080/quotes/perry-zirkel/</guid>
       <description></description>
     </item>
     <item>
-      <title>Sarah Johnson - TechCorp</title>
-      <link>http://localhost:1313/quotes/sarah-tech-corp/</link>
+      <title>David Baum</title>
+      <link>http://localhost:8080/quotes/david-baum/</link>
       <pubDate>Sat, 26 Jul 2025 08:41:00 -0400</pubDate>
-      <guid>http://localhost:1313/quotes/sarah-tech-corp/</guid>
+      <guid>http://localhost:8080/quotes/david-baum/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kristin Messegee</title>
+      <link>http://localhost:8080/quotes/kristin-messegee/</link>
+      <pubDate>Sat, 26 Jul 2025 08:41:00 -0400</pubDate>
+      <guid>http://localhost:8080/quotes/kristin-messegee/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rosalie Wolkowicz</title>
+      <link>http://localhost:8080/quotes/rosalie-wolkowicz/</link>
+      <pubDate>Sat, 26 Jul 2025 08:41:00 -0400</pubDate>
+      <guid>http://localhost:8080/quotes/rosalie-wolkowicz/</guid>
       <description></description>
     </item>
   </channel>

@@ -5,4 +5,4 @@ description: "Discover Laura's signature talks on accessibility, inclusive desig
 
 # Speaking Engagements
 
-Laura Anthony brings practical insights and engaging presentations to conferences, workshops, and corporate events worldwide. Her talks combine real-world case studies with actionable strategies that audiences can implement immediately.
+Laura Anthony brings practical insights and engaging presentations to conferences, workshops, and corporate events. Her talks combine real-world case studies with actionable strategies that audiences can implement immediately.

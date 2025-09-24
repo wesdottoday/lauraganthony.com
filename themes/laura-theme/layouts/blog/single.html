@@ -20,7 +20,7 @@
                 {{ end }}
                 
                 <div class="blog-info">
-                    <h1 class="blog-title">{{ .Title }}</h1>
+                    <h1 class="blog-title">{{ .Title | safeHTML }}</h1>
                     
                     <div class="blog-meta" aria-label="Post details">
                         <time datetime="{{ .Date.Format "2006-01-02" }}" class="meta-item" aria-label="Published date">

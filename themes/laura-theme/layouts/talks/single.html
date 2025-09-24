@@ -11,7 +11,7 @@
             </nav>
             
             <div class="talk-hero">
-                <h1 class="talk-title">{{ .Title }}</h1>
+                <h1 class="talk-title">{{ .Title | safeHTML }}</h1>
                 
                 <div class="talk-meta" aria-label="Talk details">
                     {{ if .Params.duration }}

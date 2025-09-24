@@ -12,7 +12,7 @@
                 </ol>
             </nav>
             
-            <h1>{{ .Title }}</h1>
+            <h1>{{ .Title | safeHTML }}</h1>
             
             {{ if .Params.summary }}
             <div class="page-summary">

@@ -2,94 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/quotes/jennifer-enterprise/</loc>
+    <loc>http://localhost:8080/quotes/chandra-cook/</loc>
     <lastmod>2025-07-26T08:41:50-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:8080/quotes/collins-saint/</loc>
     <lastmod>2025-07-26T08:41:50-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/quotes/</loc>
+    <loc>http://localhost:8080/</loc>
     <lastmod>2025-07-26T08:41:50-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/quotes/mike-startup/</loc>
+    <loc>http://localhost:8080/quotes/</loc>
+    <lastmod>2025-07-26T08:41:50-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/quotes/perry-zirkel/</loc>
     <lastmod>2025-07-26T08:41:39-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/quotes/sarah-tech-corp/</loc>
+    <loc>http://localhost:8080/quotes/david-baum/</loc>
     <lastmod>2025-07-26T08:41:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/accessibility/</loc>
+    <loc>http://localhost:8080/quotes/kristin-messegee/</loc>
+    <lastmod>2025-07-26T08:41:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/quotes/rosalie-wolkowicz/</loc>
+    <lastmod>2025-07-26T08:41:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/tags/accessibility/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>http://localhost:8080/blog/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/business-case/</loc>
+    <loc>http://localhost:8080/tags/business-case/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:8080/categories/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/fundamentals/</loc>
+    <loc>http://localhost:8080/categories/fundamentals/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/inclusive-design/</loc>
+    <loc>http://localhost:8080/tags/inclusive-design/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/innovation/</loc>
+    <loc>http://localhost:8080/tags/innovation/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:8080/tags/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/why-accessibility-matters/</loc>
+    <loc>http://localhost:8080/blog/why-accessibility-matters/</loc>
     <lastmod>2025-07-26T08:40:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/assistive-technology/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/talks/equity-in-inquiry/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automation/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/tags/hr-practices/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/manual-testing/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/tags/inclusive-hiring/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/qa/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/tags/interviewing/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/talks/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/tags/investigations/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/testing/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/tags/neurodiversity/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/talks/testing-for-accessibility/</loc>
-    <lastmod>2025-07-26T08:39:27-04:00</lastmod>
+    <loc>http://localhost:8080/talks/</loc>
+    <lastmod>2025-07-26T08:39:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/advocacy/</loc>
-    <lastmod>2025-07-26T08:38:19-04:00</lastmod>
+    <loc>http://localhost:8080/tags/communication/</loc>
+    <lastmod>2025-07-26T08:38:30-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/culture/</loc>
-    <lastmod>2025-07-26T08:38:19-04:00</lastmod>
+    <loc>http://localhost:8080/tags/conflict-resolution/</loc>
+    <lastmod>2025-07-26T08:38:30-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/talks/inclusive-leadership/</loc>
-    <lastmod>2025-07-26T08:38:19-04:00</lastmod>
+    <loc>http://localhost:8080/talks/different-wiring-shared-solutions/</loc>
+    <lastmod>2025-07-26T08:38:30-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/leadership/</loc>
-    <lastmod>2025-07-26T08:38:19-04:00</lastmod>
+    <loc>http://localhost:8080/tags/dispute-resolution/</loc>
+    <lastmod>2025-07-26T08:38:30-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/organizational-change/</loc>
-    <lastmod>2025-07-26T08:38:19-04:00</lastmod>
+    <loc>http://localhost:8080/tags/mediation/</loc>
+    <lastmod>2025-07-26T08:38:30-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/talks/accessible-design-principles/</loc>
+    <loc>http://localhost:8080/talks/leadership-mindset-for-all-minds/</loc>
+    <lastmod>2025-07-26T08:38:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/tags/inclusive-practices/</loc>
+    <lastmod>2025-07-26T08:38:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/tags/leadership/</loc>
+    <lastmod>2025-07-26T08:38:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/tags/organizational-development/</loc>
+    <lastmod>2025-07-26T08:38:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/tags/team-management/</loc>
+    <lastmod>2025-07-26T08:38:00-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:8080/talks/great-minds-dont-think-alike/</loc>
     <lastmod>2025-07-26T08:37:50-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/design/</loc>
+    <loc>http://localhost:8080/tags/talent-development/</loc>
     <lastmod>2025-07-26T08:37:50-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ux/</loc>
-    <lastmod>2025-07-26T08:37:50-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/wcag/</loc>
+    <loc>http://localhost:8080/tags/workplace-culture/</loc>
     <lastmod>2025-07-26T08:37:50-04:00</lastmod>
   </url>
 </urlset>

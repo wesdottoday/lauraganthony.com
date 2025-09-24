@@ -1,40 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Accessibility on Laura Anthony - Speaker &amp; Accessibility Advocate</title>
-    <link>http://localhost:1313/tags/accessibility/</link>
-    <description>Recent content in Accessibility on Laura Anthony - Speaker &amp; Accessibility Advocate</description>
+    <title>Accessibility on Laura Anthony - Speaker &amp; Neuroinclusive Leader</title>
+    <link>http://localhost:8080/tags/accessibility/</link>
+    <description>Recent content in Accessibility on Laura Anthony - Speaker &amp; Neuroinclusive Leader</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Jul 2025 08:40:00 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/accessibility/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:8080/tags/accessibility/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why Accessibility Matters: Beyond Compliance</title>
-      <link>http://localhost:1313/blog/why-accessibility-matters/</link>
+      <link>http://localhost:8080/blog/why-accessibility-matters/</link>
       <pubDate>Sat, 26 Jul 2025 08:40:00 -0400</pubDate>
-      <guid>http://localhost:1313/blog/why-accessibility-matters/</guid>
+      <guid>http://localhost:8080/blog/why-accessibility-matters/</guid>
       <description>Accessibility isn&amp;rsquo;t just about following guidelines—it&amp;rsquo;s about creating experiences that work for everyone and unlocking innovation in the process.</description>
-    </item>
-    <item>
-      <title>Testing for Accessibility: Beyond Automated Tools</title>
-      <link>http://localhost:1313/talks/testing-for-accessibility/</link>
-      <pubDate>Sat, 26 Jul 2025 08:39:27 -0400</pubDate>
-      <guid>http://localhost:1313/talks/testing-for-accessibility/</guid>
-      <description>Master comprehensive accessibility testing techniques that go beyond automated tools to ensure your digital products work for all users.</description>
-    </item>
-    <item>
-      <title>Inclusive Leadership: Building Accessibility Champions</title>
-      <link>http://localhost:1313/talks/inclusive-leadership/</link>
-      <pubDate>Sat, 26 Jul 2025 08:38:19 -0400</pubDate>
-      <guid>http://localhost:1313/talks/inclusive-leadership/</guid>
-      <description>Discover how to lead accessibility initiatives within your organization and create a culture where inclusive design thrives at every level.</description>
-    </item>
-    <item>
-      <title>Accessible Design Principles: Building for Everyone</title>
-      <link>http://localhost:1313/talks/accessible-design-principles/</link>
-      <pubDate>Sat, 26 Jul 2025 08:37:50 -0400</pubDate>
-      <guid>http://localhost:1313/talks/accessible-design-principles/</guid>
-      <description>Learn the fundamental principles of accessible design and how to create digital experiences that work for everyone, including users with disabilities.</description>
     </item>
   </channel>
 </rss>

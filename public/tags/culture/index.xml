@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Culture on Laura Anthony - Speaker &amp; Accessibility Advocate</title>
-    <link>http://localhost:1313/tags/culture/</link>
+    <link>https://lauraganthony.com/tags/culture/</link>
     <description>Recent content in Culture on Laura Anthony - Speaker &amp; Accessibility Advocate</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Jul 2025 08:38:19 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/culture/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lauraganthony.com/tags/culture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Inclusive Leadership: Building Accessibility Champions</title>
-      <link>http://localhost:1313/talks/inclusive-leadership/</link>
+      <link>https://lauraganthony.com/talks/inclusive-leadership/</link>
       <pubDate>Sat, 26 Jul 2025 08:38:19 -0400</pubDate>
-      <guid>http://localhost:1313/talks/inclusive-leadership/</guid>
+      <guid>https://lauraganthony.com/talks/inclusive-leadership/</guid>
       <description>Discover how to lead accessibility initiatives within your organization and create a culture where inclusive design thrives at every level.</description>
     </item>
   </channel>

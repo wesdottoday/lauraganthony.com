@@ -1,22 +1,23 @@
 baseURL = "https://lauraganthony.com"
 languageCode = "en-us"
-title = "Laura Anthony - Speaker & Accessibility Advocate"
+title = "Laura Anthony - Speaker & Neuroinclusive Leader"
 theme = "laura-theme"
 
 [params]
-  # Brand Colors - Configurable
-  brandColors.primary = "#2563eb"
-  brandColors.secondary = "#1e40af"
-  brandColors.accent = "#3b82f6"
-  brandColors.text = "#1f2937"
-  brandColors.background = "#ffffff"
-  brandColors.callout = "#ef4444"
+  # Brand Colors - Dark Theme with Green Accents and Blue Buttons (WCAG AA Compliant)
+  brandColors.primary = "#00cc66"
+  brandColors.secondary = "#00aa55"
+  brandColors.accent = "#00ff88"
+  brandColors.button = "#2563eb"
+  brandColors.text = "#ffffff"
+  brandColors.background = "#0a0a0a"
+  brandColors.callout = "#00cc66"
   
   # Site Configuration
   description = "Laura Anthony is a public speaker and accessibility advocate helping organizations create inclusive experiences."
   
   # Contact Information
-  email = "hello@lauraganthony.com"
+  email = "lanthony@incompliance.com"
   website = "https://lauraganthony.com"
   linkedin = "https://linkedin.com/in/lauraganthony"
   
@@ -25,44 +26,50 @@ theme = "laura-theme"
   
   # Homepage Sections Configuration
   [params.hero]
-    title = "Creating Inclusive Experiences"
-    subtitle = "Speaker • Advocate • Accessibility Expert"
+    title = "laura <span class=\"highlight-green\">g</span> anthony"
+    subtitle = "let's <br><span class=\"highlight-green\">think differently</span><br> about <br><span class=\"highlight-green\">thinking differently</span>"
     backgroundImage = "/images/hero-bg.jpg"
-    foregroundImage = "/images/laura-hero.jpg"
+    foregroundImage = "/images/laura-hero.png"
   
   [params.introduction]
-    title = "Building a More Accessible World"
+    title = "making brain science<br><span class=\"highlight-green\">make sense</span><br>for the workplace"
     imagePosition = "left"
     image = "/images/laura-intro.jpg"
-    content = "Laura Anthony is passionate about creating digital experiences that work for everyone. With over a decade of experience in accessibility consulting, she helps organizations understand that inclusive design isn't just the right thing to do—it's the smart thing to do."
-  
-  [params.meetLaura]
-    title = "Meet Laura"
-    subtitle = "Your Partner in Accessibility"
+    content = "Your best talent may be hiding in plain sight.<br /><br />As artificial intelligence transforms every industry, the routine tasks that once defined success are disappearing. What remains are the complex, creative challenges that require unconventional thinking—exactly where neurodivergent minds excel.<br /><br />And those minds are already on your team.<br /><br />Laura helps you unlock this potential, while building inclusive cultures that don't just help different thinkers thrive, they elevate performance and innovation across the entire workforce."
+
+  [params.leadCapture]
+    title = "Free Resource: Top 10 Tips for Neuroinclusive Interviews"
+    content = "Transform your hiring process and discover hidden talent with evidence-based interview techniques that work for all minds. This comprehensive guide provides practical strategies to eliminate bias, create inclusive environments, and identify the best candidates regardless of their communication style."
+    ctaText = "Get Your Free Guide"
+    image = "/images/lead-magnet-placeholder.jpg"
     imagePosition = "right"
+
+  [params.meetLaura]
+    title = "<span class=\"highlight-green\">meet laura</span>"
+    subtitle = "speaker, disability attorney, consultant"
+    imagePosition = "left"
     image = "/images/laura-about.jpg"
-    content = "Laura brings practical insights and actionable strategies to help your team implement accessibility from the ground up. Her engaging presentations combine real-world examples with proven methodologies."
-    ctaText = "Learn More About Laura"
-    ctaLink = "/about"
+    content = "With over 25 years of experience as a disability lawyer, mediator, and leader of neurodiverse teams, Laura Anthony has helped organizations, from Fortune 100 companies to government agencies and top universities, rethink how they hire, lead, and collaborate through the lens of science and equity.<br /><br />What makes Laura's approach unique isn't just her deep expertise, but the heart behind it. As the daughter of a parent who survived a traumatic brain injury, Laura grew up navigating the realities of neurodiversity firsthand.<br /><br />This personal foundation, combined with her studies in psychology and brain science, gives her a rare ability to speak with both authority and empathy, translating the science of thinking differently into clear, actionable strategies that drive innovation, inclusion, and growth.<br /><br />Her programs are insightful, practical, and human, empowering teams to improve communication, reduce unconscious bias, and unlock the full potential of their neurodiverse workforce."
+    ctaText = "Contact Laura"
+    ctaLink = "/contact"
   
   [params.signatureTalks]
     title = "Signature Talks"
-    subtitle = "Transformative insights your audience will remember"
-  
+    subtitle = "Transformative insights your audience will <span class=\"highlight-green\">remember</span>"
+
   [params.ctaBanner]
-    title = "Ready to Transform Your Approach to Accessibility?"
-    subtitle = "Let's work together to create inclusive experiences"
-    content = "Book Laura for your next conference, workshop, or team training session."
-    ctaText = "Get In Touch"
+    title = "Ready to Harness Neurodiversity as Your Competitive Advantage?"
+    subtitle = "Laura transforms how you see, support, and succeed with different minds."
+    ctaText = "Let's chat."
     ctaLink = "#contact"
   
   [params.customerQuotes]
     title = "What People Are Saying"
     showCount = 3
     randomize = true
+    carouselSpeed = 5000
   
-  [params.customerLogos]
-    title = "Trusted by Organizations Worldwide"
+
   
   [params.contact]
     title = "Let's Connect"
@@ -83,6 +90,11 @@ theme = "laura-theme"
     name = "About"
     url = "/about/"
     weight = 30
+  
+  [[menu.main]]
+    name = "Contact"
+    url = "/#contact"
+    weight = 40
 
 [markup]
   [markup.goldmark]
