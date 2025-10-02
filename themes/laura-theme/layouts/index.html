@@ -86,7 +86,7 @@
                     {{ if .Params.subtitle }}
                     <p class="talk-subtitle">{{ .Params.subtitle }}</p>
                     {{ end }}
-                    {{/* Truncate summary to ~50 words, end at nearest sentence */}}
+                    {{/* Prepare truncated summary for mobile only */}}
                     {{ $full := .Params.summary | plainify }}
                     {{ $words := split $full " " }}
                     {{ $limit := 60 }}
@@ -96,7 +96,8 @@
                     {{ if ne $closest $candidate }}
                         {{ $use = $closest }}
                     {{ end }}
-                    <p class="talk-summary">{{ $use }}{{ if gt (len $words) $limit }}&hellip;{{ end }}</p>
+                    <p class="talk-summary talk-summary--full">{{ .Params.summary }}</p>
+                    <p class="talk-summary talk-summary--mobile-truncated">{{ $use }}{{ if gt (len $words) $limit }}&hellip;{{ end }}</p>
                     <div class="talk-meta">
                         <span class="talk-duration" aria-label="Talk duration">{{ .Params.duration }}</span>
                         <span class="talk-audience" aria-label="Target audience">{{ .Params.audience }}</span>

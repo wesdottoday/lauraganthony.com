@@ -865,6 +865,11 @@ a:hover {
     margin-bottom: var(--spacing-lg);
 }
 
+/* Default: show full summary, hide mobile truncation */
+.signature-talks .talk-summary--mobile-truncated {
+    display: none;
+}
+
 .talk-meta {
     display: flex;
     flex-wrap: wrap;
@@ -1506,6 +1511,14 @@ a:hover {
     /* Hide talk takeaways on small screens to reduce scroll */
     .signature-talks .takeaways {
         display: none;
+    }
+
+    /* Mobile: show truncated summary, hide full */
+    .signature-talks .talk-summary--full {
+        display: none;
+    }
+    .signature-talks .talk-summary--mobile-truncated {
+        display: block;
     }
 }
 
