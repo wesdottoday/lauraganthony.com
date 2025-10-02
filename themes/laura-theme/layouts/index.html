@@ -131,9 +131,9 @@
         <div class="cta-banner-content">
             <h2 id="cta-banner-title">{{ .Site.Params.ctaBanner.title | safeHTML }}</h2>
             <p class="cta-banner-subtitle">{{ .Site.Params.ctaBanner.subtitle | safeHTML }}</p>
-            <a href="{{ .Site.Params.ctaBanner.ctaLink }}" class="cta-button cta-button--large">
+            <button type="button" data-modal="contact" class="cta-button cta-button--large" aria-describedby="cta-banner-title">
                 {{ .Site.Params.ctaBanner.ctaText }}
-            </a>
+            </button>
         </div>
     </div>
 </section>

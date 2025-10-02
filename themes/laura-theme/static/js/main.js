@@ -347,6 +347,7 @@
         const contactModalTrigger = document.getElementById('contactModalTrigger');
         const leadMagnetTrigger = document.getElementById('leadMagnetTrigger');
         const contactTrigger = document.getElementById('contactTrigger');
+        const contactDataTriggers = document.querySelectorAll('[data-modal="contact"]');
         const modal = document.getElementById('contactModal');
         const modalClose = document.querySelector('.modal-close');
         const modalOverlay = document.querySelector('.modal-overlay');
@@ -399,6 +400,15 @@
         if (contactTrigger) {
             contactTrigger.addEventListener('click', function() {
                 openModal(contactTrigger);
+            });
+        }
+
+        // Support multiple modal triggers via data attribute
+        if (contactDataTriggers && contactDataTriggers.length) {
+            contactDataTriggers.forEach(function(el) {
+                el.addEventListener('click', function() {
+                    openModal(el);
+                });
             });
         }
         
