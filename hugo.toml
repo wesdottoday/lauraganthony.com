@@ -22,6 +22,9 @@ theme = "laura-theme"
   #website = "https://lauraganthony.com"
   linkedin = "https://linkedin.com/in/lauraganthony"
   
+  # Global UI toggles
+  showNavigation = false
+  
   # Formspree Configuration
   formspreeId = "YOUR_FORMSPREE_ID"
   

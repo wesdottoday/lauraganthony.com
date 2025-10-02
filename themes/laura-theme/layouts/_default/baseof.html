@@ -50,8 +50,10 @@
     <!-- Skip to content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Navigation -->
+    <!-- Navigation (toggleable via params.showNavigation) -->
+    {{ if .Site.Params.showNavigation }}
     {{ partial "navigation.html" . }}
+    {{ end }}
     
     <!-- Main content -->
     <main id="main-content" role="main" tabindex="-1">
