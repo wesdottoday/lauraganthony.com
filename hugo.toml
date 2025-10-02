@@ -18,7 +18,8 @@ theme = "laura-theme"
   
   # Contact Information
   email = "lanthony@incompliance.com"
-  website = "https://lauraganthony.com"
+  website = "http://lauraganthony.com"
+  #website = "https://lauraganthony.com"
   linkedin = "https://linkedin.com/in/lauraganthony"
   
   # Formspree Configuration
@@ -38,10 +39,10 @@ theme = "laura-theme"
     content = "Your best talent may be hiding in plain sight.<br /><br />As artificial intelligence transforms every industry, the routine tasks that once defined success are disappearing. What remains are the complex, creative challenges that require unconventional thinking—exactly where neurodivergent minds excel.<br /><br />And those minds are already on your team.<br /><br />Laura helps you unlock this potential, while building inclusive cultures that don't just help different thinkers thrive, they elevate performance and innovation across the entire workforce."
 
   [params.leadCapture]
-    title = "Free Resource: Top 10 Tips for Neuroinclusive Interviews"
-    content = "Transform your hiring process and discover hidden talent with evidence-based interview techniques that work for all minds. This comprehensive guide provides practical strategies to eliminate bias, create inclusive environments, and identify the best candidates regardless of their communication style."
+    title = "Free Resource: Tips for Neuroinclusive Interviews"
+    content = "Transform your interviewing procedures with evidence-based strategies that enable hiring teams, workplace investigators and HR professionals to conduct interviews that are more inclusive, reliable, and appropriate for all minds."
     ctaText = "Get Your Free Guide"
-    image = "/images/lead-magnet-placeholder.jpg"
+    image = "/images/resource-preview.png"
     imagePosition = "right"
 
   [params.meetLaura]

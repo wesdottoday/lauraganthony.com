@@ -422,6 +422,8 @@ a:hover {
     justify-content: center;
     padding-top: 10vh;
     padding-left: 5%;
+    position: relative;
+    z-index: 4; /* Ensure text sits above foreground image */
 }
 
 .hero-image {
@@ -436,7 +438,7 @@ a:hover {
 
 .hero-image img {
     width: 100%;
-    max-width: 640px;
+    max-width: 576px; /* desktop ~10% smaller than 640px */
     height: auto;
     border-radius: var(--radius-xl);
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.2);
@@ -1491,8 +1493,8 @@ a:hover {
     }
     
     .hero-image img {
-        max-width: 300%;
-        width: 300%;
+        max-width: 210%; /* ~70% of previous 300% */
+        width: 210%;
         height: auto;
     }
     
