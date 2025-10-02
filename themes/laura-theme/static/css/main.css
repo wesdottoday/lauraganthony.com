@@ -968,6 +968,13 @@ a:hover {
     }
 }
 
+/* Also hide using em-based breakpoint to account for browser zoom */
+@media (max-width: 64em) { /* ~1024px at 16px root */
+    .cta-banner::before {
+        display: none !important;
+    }
+}
+
 /* If layout gets tight, push image off-screen sooner to avoid overlap */
 @media (max-width: 1600px) and (min-width: 768px) {
     .cta-banner::before { background-position: calc(100% + 6vw) center; }
