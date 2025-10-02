@@ -961,6 +961,13 @@ a:hover {
     }
 }
 
+/* Hide CTA background image on viewports under 1024px */
+@media (max-width: 1023px) {
+    .cta-banner::before {
+        display: none !important;
+    }
+}
+
 /* If layout gets tight, push image off-screen sooner to avoid overlap */
 @media (max-width: 1600px) and (min-width: 768px) {
     .cta-banner::before { background-position: calc(100% + 6vw) center; }
