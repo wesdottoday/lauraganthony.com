@@ -937,6 +937,7 @@ a:hover {
     background: var(--color-primary);
     color: white;
     text-align: center;
+    overflow: hidden; /* ensure off-screen background doesn't overlap text */
 }
 
 .cta-banner::before {
@@ -947,7 +948,8 @@ a:hover {
     width: 100%;
     height: 100%;
     background-image: url('/images/laura-cta.png');
-    background-size: contain;
+    /* shrink visual to 80% of previous size */
+    background-size: 80% auto;
     background-position: right center;
     background-repeat: no-repeat;
     z-index: 1;
@@ -956,6 +958,13 @@ a:hover {
 @media (max-width: 767px) {
     .cta-banner::before {
         display: none;
+    }
+}
+
+/* If layout gets tight, push image off-screen instead of overlapping text */
+@media (max-width: 1200px) and (min-width: 768px) {
+    .cta-banner::before {
+        background-position: calc(100% + 10vw) center;
     }
 }
 
