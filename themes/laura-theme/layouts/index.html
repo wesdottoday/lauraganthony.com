@@ -86,7 +86,17 @@
                     {{ if .Params.subtitle }}
                     <p class="talk-subtitle">{{ .Params.subtitle }}</p>
                     {{ end }}
-                    <p class="talk-summary">{{ .Params.summary }}</p>
+                    {{/* Truncate summary to ~50 words, end at nearest sentence */}}
+                    {{ $full := .Params.summary | plainify }}
+                    {{ $words := split $full " " }}
+                    {{ $limit := 60 }}
+                    {{ $candidate := cond (gt (len $words) $limit) (delimit (first $limit $words) " ") $full }}
+                    {{ $closest := replaceRE `(?s)^(.+[.!?]).*` `$1` $candidate }}
+                    {{ $use := $candidate }}
+                    {{ if ne $closest $candidate }}
+                        {{ $use = $closest }}
+                    {{ end }}
+                    <p class="talk-summary">{{ $use }}{{ if gt (len $words) $limit }}&hellip;{{ end }}</p>
                     <div class="talk-meta">
                         <span class="talk-duration" aria-label="Talk duration">{{ .Params.duration }}</span>
                         <span class="talk-audience" aria-label="Target audience">{{ .Params.audience }}</span>

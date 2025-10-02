@@ -1502,6 +1502,11 @@ a:hover {
         font-size: calc(var(--font-size-xl) * 1.1);
         white-space: nowrap;
     }
+
+    /* Hide talk takeaways on small screens to reduce scroll */
+    .signature-talks .takeaways {
+        display: none;
+    }
 }
 
 /* Accessibility enhancements */
